@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Messages{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="/styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="/styles/iconfont/iconfont.css">
+  {% block stylesheet %}{% endblock %}
+</head>
+<body>
+  <section id="content">
+    {% block content %}
+      <p>Forgot to add content?</p>
+    {% endblock %}
+  </section>
+  <script src="/scripts/jquery-2.1.3.min.js"></script>
+  {% block script %}{% endblock %}
+</body>
+</html>

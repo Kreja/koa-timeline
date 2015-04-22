@@ -1,0 +1,217 @@
+/*
+////////////////////////////////////////
+ Absolute Centering
+////////////////////////////////////////
+*/
+.Absolute-Center {
+  height: 80%;
+  /* Set your own height: percents, ems, whatever! */
+
+  width: 80%;
+  /* Set your own width: percents, ems, whatever! */
+
+  overflow: auto;
+  /* Recommended in case content is larger than the container */
+
+  margin: auto;
+  /* Center the item vertically & horizontally */
+
+  position: absolute;
+  /* Break it out of the regular flow */
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* Set the bounds in which to center it, relative to its parent/container */
+
+}
+/* //////////////////////////////////////// */
+/* Make sure our center blocks stay in their container! */
+.Center-Container {
+  position: relative;
+}
+/* //////////////////////////////////////// */
+/* Fixed floating element within viewport */
+.Absolute-Center.is-Fixed {
+  position: fixed;
+  z-index: 999;
+}
+/* //////////////////////////////////////// */
+/* Variable content height with display: table;
+Breaks cross browser compatibility, but now has a Modernizr test available!
+
+Modernizr test adds ".absolutecentercontent" to <html> if the browser will center correctly with a variable height, and ".no-absolutecentercontent" if it will not be centered with a variable height so that you can add fallback styles in your CSS or use Javascript to manually center it. */
+.absolutecentercontent .Absolute-Center.is-Variable {
+  display: table;
+  height: auto;
+  /* Only necessary because height was already declared */
+
+}
+/*
+////////////////////////////////////////
+ Presentational Code. You can ignore this!
+////////////////////////////////////////
+*/
+.Shaw-Button {
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: center;
+  background: #2e5f3e;
+  color: #FFF;
+  font-weight: bold;
+}
+.Shaw-Button:hover {
+  background: #3f8154;
+  color: #FFF;
+  text-decoration: none;
+}
+.Center-Container {
+  background: #2e5f3e;
+  color: #4fa46b;
+  width: 100%;
+  height: 400px;
+  margin: 20px auto 40px;
+  clear: both;
+}
+.Center-Block {
+  background: #4fa46b;
+  color: #FFF;
+  padding: 20px;
+}
+.Center-Block .Title {
+  padding: 0;
+  margin: 0 0 .5em;
+  line-height: 1em;
+}
+
+.Modal .tips{
+  margin-top: 0;
+  height: 20px;
+}
+.Modal p{
+  margin-bottom: 0;
+  float: right;
+  width: 100%;
+  margin: 1rem 0 1rem;
+}
+.Modal a {
+  color: #4fa46b;
+  text-decoration: none;
+  transition: all 150ms ease;
+  border-bottom: dotted 1px transparent;
+}
+.Modal a:hover {
+  color: #2e5f3e;
+  text-decoration: underline;
+}
+.no-js .is-Fixed {
+  display: none;
+}
+.Modal {
+  border: solid 5px #2e5f3e;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+.Modal-Background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 3;
+}
+.toggle-Modal {
+  cursor: pointer;
+}
+.is-Hidden {
+  display: none;
+}
+
+/**
+ * add by kelly
+ */
+/* line 1, ../sass/test.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 5, ../sass/test.scss */
+body {
+  background: #ecf0f1;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+
+/* line 10, ../sass/test.scss */
+.page-wrap {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+/* line 17, ../sass/test.scss */
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #8e44ad;
+  top: -2.25rem;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+/* line 25, ../sass/test.scss */
+.styled-input {
+  float: left;
+  width: 33.3333%;
+  margin: 1rem 0 1rem;
+  position: relative;
+}
+/* line 30, ../sass/test.scss */
+.styled-input label {
+  color: #999;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+  pointer-events: none;
+}
+/* line 39, ../sass/test.scss */
+.styled-input.wide {
+  width: 100%;
+}
+
+/* line 45, ../sass/test.scss */
+input, textarea {
+  padding: 1rem 1rem;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+}
+/* line 50, ../sass/test.scss */
+input ~ span, textarea ~ span {
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #8e44ad;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+/* line 61, ../sass/test.scss */
+input:focus, textarea:focus {
+  outline: 0;
+}
+/* line 68, ../sass/test.scss */
+input:focus ~ span, textarea:focus ~ span {
+  width: 100%;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+/* line 80, ../sass/test.scss */
+textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+

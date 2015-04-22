@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}时间轴{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" type="text/css" href="/styles/detail.css">
+  <link rel="stylesheet" type="text/css" href="/styles/modal.css">
+{% endblock %}
+
+{% block content %}
+  <!-- 模态框 -->
+  <div class="Modal-Background toggle-Modal is-Hidden">
+    <div class="Center-Block Absolute-Center is-Fixed is-Variable Modal" id="Fixed-Modal">
+    <div class="Center-Content">
+      <div class="styled-input">
+        <input id="title" type="text" required="" value="{{ message.title }}" data-id="{{ message._id.toString() }}">
+        <label>标题</label>
+        <span></span>
+      </div>
+      <div class="styled-input wide">
+        <textarea id="txt" required>{{ message.txt }}</textarea>
+        <label>内容...</label>
+        <span></span>
+      </div>
+      <p class="tips"></p>
+      <p>
+        <a href="#" class="Shaw-Button trigger-Resize btn-send">确定</a>
+        <a href="#" class="Shaw-Button toggle-Modal">取消</a>
+      </p>
+    </div>
+    </div>
+  </div>
+
+  <header>
+    <h1 class="J-title">{{ message.title }}</h1>
+  </header>
+
+  <section id="cd-timeline" class="cd-container">
+      <div class="cd-timeline-block">
+        <div class="cd-timeline-content">
+          <p class="J-txt">{{ message.txt }}</p>
+          <a href="../timeline" class="cd-read-more" data-id="{{ message._id.toString() }}"><i class="iconfont icon-fanhui"></i></a>
+          <a href="javascript:;" class="cd-read-more J-delete" data-id="{{ message._id.toString() }}"><i class="iconfont icon-lajitong"></i></a>
+          <a href="javascript:;" class="cd-read-more J-edit toggle-Modal"><i class="iconfont icon-bianji"></i></a>
+          <span class="cd-date">{{ message.date }}</span>
+        </div>
+      </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+  <script src="/scripts/detail.js"></script>
+  <script src="/scripts/modal.js"></script>
+{% endblock %}

@@ -1,0 +1,129 @@
+/**
+ * by http://codepen.io/codyhouse/pen/FdkEf?editors=100
+ */
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: "Droid Serif", serif;
+  color: #7f8c97;
+  background-color: #e9f0f5;
+}
+
+a {
+  color: #acb7c0;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+header {
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background: #303e49;
+}
+header h1 {
+  color: #ffffff;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+.cd-timeline-content {
+  position: relative;
+  margin: 0 60px;
+  background: #ffffff;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
+}
+.cd-timeline-content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-timeline-content h2 {
+  color: #303e49;
+}
+.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: .8em 1em;
+  background: #acb7c0;
+  color: #ffffff;
+  border-radius: 0.25em;
+  margin-right: 10px;
+}
+.no-touch .cd-timeline-content .cd-read-more:hover {
+  background-color: #bac4cb;
+}
+.cd-timeline-content .cd-date {
+  float: left;
+  padding: .8em 0;
+  opacity: .7;
+}
