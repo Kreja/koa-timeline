@@ -1,5 +1,4 @@
 'use strict';
-var messages = require('./controllers/messages');
 var timeline = require('./controllers/timeline');
 var compress = require('koa-compress');
 var logger = require('koa-logger');
@@ -12,12 +11,7 @@ var app = module.exports = koa();
 // Logger
 app.use(logger());
 
-app.use(route.get('/', messages.home));
-app.use(route.get('/messages', messages.list));
-app.use(route.get('/messages/:id', messages.fetch));
-app.use(route.post('/messages', messages.create));
-app.use(route.get('/async', messages.delay));
-
+app.use(route.get('/', timeline.home)); //主页时间轴
 app.use(route.get('/timeline', timeline.home)); //主页时间轴
 app.use(route.get('/timelineList', timeline.list));
 app.use(route.get('/timeline/:id', timeline.fetch)); //详情
