@@ -1,10 +1,7 @@
-# koa-timeline
-a easy timeline for koa practice
+# koa-comment
 
 ## how to run
 ```
-git clone git@github.com:Kreja/koa-timeline.git
-cd koa-timeline
 npm install
-npm start //make sure mongod is running.
+npm start
 ```

@@ -1,5 +1,5 @@
 'use strict';
-var timeline = require('./controllers/timeline');
+var comment = require('./controllers/comment');
 var compress = require('koa-compress');
 var logger = require('koa-logger');
 var serve = require('koa-static');
@@ -11,14 +11,9 @@ var app = module.exports = koa();
 // Logger
 app.use(logger());
 
-app.use(route.get('/', timeline.home)); //主页时间轴
-app.use(route.get('/timeline', timeline.home)); //主页时间轴
-app.use(route.get('/timelineList', timeline.list));
-app.use(route.get('/timeline/:id', timeline.fetch)); //详情
-app.use(route.post('/timeline', timeline.create)); //添加
-app.use(route.post('/timeline/del', timeline.del)); //删除
-app.use(route.post('/timeline/edit', timeline.edit)); //编辑
-// app.use(route.get('/async', timeline.delay));
+app.use(route.get('/', comment.home)); //主页
+app.use(route.get('/getInitData', comment.getInitData)); //获取初始数据
+app.use(route.post('/add', comment.create)); //添加
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));

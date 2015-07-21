@@ -43,6 +43,7 @@ Modules - reusable parts of our design
   text-align: center;
   line-height: 40px;
   cursor: pointer;
+  color: #fff;
 }
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
@@ -493,8 +494,4 @@ header h1 {
 @keyframes fadein {
   from { opacity:0; max-height:0;overflow: hidden;}
   to { opacity:1; max-height:200px;overflow: hidden;}
-}
-
-.icon-weibiaoti1{
-  color: #fff;
 }
