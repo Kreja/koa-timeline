@@ -21,7 +21,7 @@ $(function() {
           date: new Date(),
           title: filter.escape($('#title').val()),
           txt: filter.escape($('#txt').val()),
-          g_tk: getCookie('skey') // 带上 g_tk
+          g_tk: getToken() // 带上 g_tk
         };
 
         //请求
@@ -32,6 +32,7 @@ $(function() {
           }
           //成功
           else if(data.status===1){
+            setCookie('skey', data.skey, 1); // 设置新的 skey
             me.afterAdd(data.newCom);
           }
         });

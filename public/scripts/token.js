@@ -10,13 +10,13 @@ function setCookie(c_name,value,expiredays){
 }
 
 function addToken(url,type){
-    var token=$getToken();
+    var token=getToken();
     return token==""?url:url+(url.indexOf("?")!=-1?"&":"?")+"g_tk="+token+"&g_ty="+type;
 }
 
 function getToken(){
-    var skey=$getCookie("skey"),
-        token=skey==null?"":$time33(skey);
+    var skey=getCookie("skey"),
+        token=skey==null?"":time33(skey);
     return token;
 }
 
@@ -28,9 +28,12 @@ function getCookie(name){
 };
 
 function time33(str){
-    //哈希time33算法
-    for(var i = 0, len = str.length,hash = 5381; i < len; ++i){
-       hash += (hash << 5) + str.charAt(i).charCodeAt();
-    };
-    return hash & 0x7fffffff;
+  str = typeof str == 'string' ? str : str.toString();
+
+  //哈希time33算法
+  for(var i = 0, len = str.length,hash = 5381; i < len; ++i){
+     hash += (hash << 5) + str.charAt(i).charCodeAt();
+  };
+
+  return hash & 0x7fffffff;
 };

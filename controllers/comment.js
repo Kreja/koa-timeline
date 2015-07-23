@@ -2,10 +2,13 @@
 var views = require('co-views');
 var parse = require('co-body');
 var util = require('../lib/util');
+var token = require('../lib/token');
 
 var render = views(__dirname + '/../views', {
   map: { html: 'swig' }
 });
+
+// todo: 登录校验要改成前置
 
 var user = {
   username: 'jack',
@@ -26,8 +29,8 @@ var warning = {
   status: -1
 };
 
-var g_tk = 123;
-var skey = g_tk; // 这里需要编码？？？
+// 根据时间+随机数生成 skey
+var skey = token.generateSkey();
 
 /**
  * 登录页
@@ -95,6 +98,8 @@ module.exports.getInitData = function *getInitData() {
 module.exports.create = function *create() {
   var comment = yield parse(this);
 
+  var g_tk = token.getToken(skey);
+
   // 校验 g_tk
   if(comment.g_tk != g_tk){
     this.body = warning;
@@ -118,10 +123,14 @@ module.exports.create = function *create() {
 
     comments.push(comment);
 
+    // 生成新的 skey
+    skey = token.generateSkey();
+
     this.body = {
       msg: '添加成功',
       status: 1,
-      newCom: comment
+      newCom: comment,
+      'skey': skey
     };
   }
 };
