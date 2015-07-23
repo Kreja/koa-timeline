@@ -11,12 +11,14 @@ var app = module.exports = koa();
 // Logger
 app.use(logger());
 
-app.use(route.get('/', comment.home)); //主页
+app.use(route.get('/', comment.login)); // 首页登录页
+app.use(route.post('/login', comment.handleLogin)); // 登录
+app.use(route.get('/home', comment.home)); // 评论主页
 app.use(route.get('/getInitData', comment.getInitData)); //获取初始数据
-app.use(route.post('/add', comment.create)); //添加
+app.use(route.post('/add', comment.create)); // 添加评论
 
 // Serve static files
-app.use(serve(path.join(__dirname, 'public')));
+app.use(serve(path.join(__dirname, 'build')));
 
 // Compress
 app.use(compress());

@@ -1,4 +1,4 @@
-(function ($) {
+$(function() {
   'use strict';
   var app = {
     /**
@@ -19,8 +19,9 @@
 
         var newCom = {
           date: new Date(),
-          title: $('#title').val(),
-          txt: $('#txt').val()
+          title: filter.escape($('#title').val()),
+          txt: filter.escape($('#txt').val()),
+          g_tk: getCookie('skey') // 带上 g_tk
         };
 
         //请求
@@ -89,4 +90,4 @@
   };
 
   app.init();
-})(jQuery);
+});
